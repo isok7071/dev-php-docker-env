@@ -1,0 +1,18 @@
+{
+    "name": "isok/simple-php-docker-env",
+    "description": "Simple docker env for php development",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "^7.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "isok"
+        }
+    ]
+}
