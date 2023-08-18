@@ -8,10 +8,11 @@ services:
       - "80:80"
     networks:
       - network
-    depends_on: 
+    depends_on:
       - php-fpm
-    volumes: #  монтирование директорий, директория-на-хост-машине:директория-в-докере
-      - ./app:/var/www/dev/
+    volumes:
+       - ./app/backend:/var/www/backend/
+       - ./app/frontend:/var/www/frontend/
   php-fpm:
     build:
       context: .
@@ -19,7 +20,20 @@ services:
     networks:
       - network
     volumes:
-      - ./app:/var/www/dev/
-networks: # явно объявленные сети
+      - ./app/backend:/var/www/backend/
+  frontend:
+    build:
+      context: .
+      dockerfile: ./images/frontend/Dockerfile
+    networks:
+      - network
+    volumes:
+      - ./app/frontend:/var/www/frontend/
+    ports:
+      - "3000:3000"
+
+
+networks:
+  # явно объявленные сети
   network:
     driver: bridge
