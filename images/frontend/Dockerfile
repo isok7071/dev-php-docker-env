@@ -2,7 +2,6 @@ FROM node:alpine
 
 WORKDIR /var/www/frontend
 
-COPY ./app/frontend/package.json ./
-# COPY ./app/frontend/package-lock.json ./
+COPY ./app/frontend/ ./
 
-CMD ["npm", "install"]
+RUN npm install

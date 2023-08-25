@@ -31,7 +31,7 @@ services:
       - ./app/frontend:/var/www/frontend/
     ports:
       - "3000:3000"
-
+    tty: true
 
 networks:
   # явно объявленные сети
