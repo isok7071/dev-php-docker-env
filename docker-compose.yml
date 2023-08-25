@@ -8,10 +8,10 @@ services:
       - "80:80"
     networks:
       - network
-    depends_on: 
+    depends_on:
       - php-fpm
-    volumes: #  монтирование директорий, директория-на-хост-машине:директория-в-докере
-      - ./app:/var/www/dev/
+    volumes:
+       - ./app:/var/www/app/
   php-fpm:
     build:
       context: .
@@ -19,7 +19,8 @@ services:
     networks:
       - network
     volumes:
-      - ./app:/var/www/dev/
-networks: # явно объявленные сети
+      - ./app:/var/www/app/
+
+networks:
   network:
     driver: bridge
