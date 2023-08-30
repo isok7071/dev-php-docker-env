@@ -34,8 +34,7 @@ RUN apt-get update \
     pkg-config \
     libldap2-dev \
     libpq-dev \
-    && pecl install mongodb \
-    && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb-ext.ini
+    && echo "max_execution_time=300" > /usr/local/etc/php/conf.d/php.ini
 
 RUN docker-php-ext-configure intl --enable-intl && \
     docker-php-ext-configure gd --with-freetype --with-jpeg && \
@@ -51,6 +50,6 @@ RUN docker-php-ext-configure intl --enable-intl && \
 RUN curl -sL https://getcomposer.org/installer | php -- --install-dir /usr/bin --filename composer
 
 # Рабочая директория для PHP
-WORKDIR /var/www/app
+WORKDIR /var/www/
 
 CMD ["php-fpm"]
