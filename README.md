@@ -15,5 +15,6 @@ npm run build
 ```
 
 4. Готово.
-   Адрес фронтенда - http://localhost
+   Адрес фронтенда - http://localhost/
    Адрес бэкэнда - http://localhost/api/ или http://localhost/_.php (где _ название php файла)
+   Адрес статики - http://localhost/frontend/dist
