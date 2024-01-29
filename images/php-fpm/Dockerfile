@@ -35,7 +35,11 @@ RUN apt-get update \
     libldap2-dev \
     libpq-dev \
     && pecl install mongodb \
-    && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb-ext.ini
+    && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb-ext.ini \
+	&& echo "max_execution_time=300" > /usr/local/etc/php/conf.d/php.ini
+
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
 
 RUN docker-php-ext-configure intl --enable-intl && \
     docker-php-ext-configure gd --with-freetype --with-jpeg && \

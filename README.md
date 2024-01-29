@@ -9,3 +9,4 @@ composer install
 
 3. Готово.
 Адрес бэкэнда - http://localhost/api/ или http://localhost/_.php (где _ название php файла)
+Адрес статики - http://localhost/assets/*
